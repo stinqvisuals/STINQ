@@ -1,0 +1,132 @@
+:root {
+    --primary-red: #ff0000;
+    --dark-bg: #121212;
+    --text-light: #ffffff;
+    --gray: #2a2a2a;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.checkout-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+header h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 3rem;
+    color: var(--primary-red);
+    margin-bottom: 0;
+}
+
+.checkout-wrapper {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.checkout-form {
+    flex: 2;
+    background: var(--gray);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.checkout-summary {
+    flex: 1;
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 8px;
+    height: fit-content;
+}
+
+h3 {
+    border-bottom: 2px solid var(--primary-red);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: #333;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 4px;
+}
+
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.payment-card {
+    background: #333;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-red);
+}
+
+.pay-button {
+    width: 100%;
+    background: var(--primary-red);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-family: 'Archivo Black', sans-serif;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pay-button:hover {
+    background: white;
+    color: black;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .checkout-wrapper {
+        flex-direction: column;
+    }
+}
