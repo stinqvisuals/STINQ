@@ -123,9 +123,14 @@ a {
     opacity: 50%;
 }
 
+.column span {
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
 .column p {
     font-family: "Roboto Condensed", sans-serif;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #fff;
     margin-top: 1rem;
 }
@@ -213,6 +218,14 @@ a {
     
     .footer-links {
         gap: 1.5rem;
+    }
+
+    .column span {
+        font-size: 0.9rem;
+    }
+
+    .column p {
+        font-size: 0.7rem;
     }
 }
 
