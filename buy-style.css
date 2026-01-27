@@ -13,7 +13,7 @@ body {
 }
 
 .checkout-container {
-    max-width: 1000px;
+    max-width: 100%;
     margin: 50px auto;
     padding: 20px;
 }
@@ -184,5 +184,9 @@ h3 {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+    }
+    
+    .footer-links {
+        gap: 1.5rem;
     }
 }
