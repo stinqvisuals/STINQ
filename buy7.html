@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Bogle&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="buy-style.css" />
+    <link rel="stylesheet" href="animation.css" />
+    <link rel="icon" href="assets/STINQ LOGO RED WITH TAG.png" type="icon-X">
+    <title>BUY - STORE</title>
+</head>
+<body>
+    <div class="checkout-container">
+    <header>
+        <h1>CHECKOUT</h1>
+        <p>Complete Your Order</p>
+    </header>
+
+    <div class="checkout-wrapper">
+        <!-- Bagian Kiri: Form Detail Pengiriman -->
+        <div class="checkout-form">
+            <h3><i class="fas fa-user"></i> Shipping Information</h3>
+            <div class="input-group">
+                <label>Name</label>
+                <input type="text" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="input-group">
+                <label>Address</label>
+                <textarea id="address" placeholder="Street Name, City" required></textarea>
+            </div>
+            <div class="input-group">
+                <label>Phone Number</label>
+                <input type="tel" id="phone" placeholder="0812xxxx" required>
+            </div>
+
+            <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
+            <div class="payment-options">
+                <label class="payment-card">
+                    <input type="radio" name="payment" value="Bank Transfer" checked>
+                    <span class="checkmark"></span>
+                    Bank Transfer
+                </label>
+                <label class="payment-card">
+                    <input type="radio" name="payment" value="E-Wallet (Dana/Gopay)">
+                    <span class="checkmark"></span>
+                    E-Wallet (OVO/Dana/Gopay)
+                </label>
+            </div>
+        </div>
+
+        <!-- Bagian Kanan: Ringkasan Belanja -->
+        <div class="checkout-summary">
+            <h3>Order Summary</h3>
+            <div class="summary-item">
+                <span>STINQ Clothes (1x)</span>
+                <span>Rp 117.000</span>
+            </div>
+            <div class="summary-item">
+                <span>Shipping Cost</span>
+                <span>Rp 20.000</span>
+            </div>
+            <hr>
+            <div class="summary-total">
+                <span>Total Payment</span>
+                <span id="total-price">Rp 137.000</span>
+            </div>
+            <button class="pay-button" onclick="sendToWhatsApp()">
+                Pay Now
+            </button>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+            <div class="footer-container">
+                <div class="footer-copyright">
+                    <p>&copy; 2026 STINQ. All rights reserved.</p>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </footer>
+
+<!-- Tambahkan Script JavaScript -->
+<script>
+    function sendToWhatsApp() {
+        const name = document.getElementById('name').value;
+        const address = document.getElementById('address').value;
+        const phone = document.getElementById('phone').value;
+        const payment = document.querySelector('input[name="payment"]:checked').value;
+        const total = document.getElementById('total-price').innerText;
+
+        if (name === "" || address === "" || phone === "") {
+            alert("Harap isi semua data pengiriman!");
+            return;
+        }
+
+        // Ganti nomor ini dengan nomor WhatsApp toko Anda
+        const adminWA = "081809811311"; 
+
+        const message = `Halo STINQ Store, saya ingin memesan:%0A%0A` +
+            `*Nama:* ${name}%0A` +
+            `*Alamat:* ${address}%0A` +
+            `*No. HP:* ${phone}%0A` +
+            `*Metode Bayar:* ${payment}%0A` +
+            `*Total:* ${total}%0A%0A` +
+            `Mohon segera diproses ya!`;
+
+        const whatsappURL = `https://api.whatsapp.com/send?phone=${adminWA}&text=${message}`;
+        window.open(whatsappURL, '_blank');
+    }
+</script>
+</body>
+</html>
